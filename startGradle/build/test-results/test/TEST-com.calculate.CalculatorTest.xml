@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.calculate.CalculatorTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2024-08-25T04:48:58" hostname="choeinlyeol-ui-MacBookAir.local" time="0.005">
+  <properties/>
+  <testcase name="testDivideByZero()" classname="com.calculate.CalculatorTest" time="0.0"/>
+  <testcase name="testAdd()" classname="com.calculate.CalculatorTest" time="0.0"/>
+  <testcase name="testCos()" classname="com.calculate.CalculatorTest" time="0.0"/>
+  <testcase name="testExp()" classname="com.calculate.CalculatorTest" time="0.0"/>
+  <testcase name="testLog()" classname="com.calculate.CalculatorTest" time="0.0"/>
+  <testcase name="testSin()" classname="com.calculate.CalculatorTest" time="0.0"/>
+  <testcase name="testTan()" classname="com.calculate.CalculatorTest" time="0.001"/>
+  <testcase name="testSubtract()" classname="com.calculate.CalculatorTest" time="0.0"/>
+  <testcase name="testPower()" classname="com.calculate.CalculatorTest" time="0.0"/>
+  <testcase name="testIntegration()" classname="com.calculate.CalculatorTest" time="0.0"/>
+  <testcase name="testDivide()" classname="com.calculate.CalculatorTest" time="0.0"/>
+  <testcase name="testMultiply()" classname="com.calculate.CalculatorTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
