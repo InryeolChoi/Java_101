@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/basic.main.iml" filepath="$PROJECT_DIR$/.idea/modules/basic.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/basic.test.iml" filepath="$PROJECT_DIR$/.idea/modules/basic.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/pracJava.iml" filepath="$PROJECT_DIR$/.idea/pracJava.iml" />
     </modules>
   </component>
