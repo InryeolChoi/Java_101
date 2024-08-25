@@ -1,19 +1,33 @@
 plugins {
-    id("java")
+    id 'java'
 }
 
-group = "org.example"
+group = "com.calculate"
 version = "1.0-SNAPSHOT"
+
+sourceCompatibility = '22'
+targetCompatibility = '22'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.10.0"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
 
-tasks.test {
+test {
     useJUnitPlatform()
+}
+
+// 실행 가능한 JAR 파일 생성 설정
+jar {
+    archiveFileName = 'Calculator.jar'                      // 원하는 이름으로 설정
+    destinationDirectory = file("$rootDir")                 // 원하는 경로로 설정
+    manifest {
+        attributes(
+            'Main-Class': 'com.calculate.CalculatorApp'     // 메인 클래스의 경로
+        )
+    }
 }
