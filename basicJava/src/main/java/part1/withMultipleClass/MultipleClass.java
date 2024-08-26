@@ -1,6 +1,6 @@
-package part1.start;
+package part1.withMultipleClass;
 
-public class Begin {
+public class MultipleClass {
     public static void main(String[] args) {
         HelperClass hClass = new HelperClass("안녕");
         hClass.help();
@@ -8,7 +8,7 @@ public class Begin {
         UtilityClass uClass = new UtilityClass(5);
         uClass.performUtility();
 
-        WithSecond wClass = new WithSecond("하이하이");
+        withOtherFile wClass = new withOtherFile("하이하이");
         System.out.println(wClass.getStr());
     }
 }

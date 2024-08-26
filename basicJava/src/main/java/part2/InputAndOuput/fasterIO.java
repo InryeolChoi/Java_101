@@ -1,8 +1,8 @@
-package part2.Grammar;
+package part2.InputAndOuput;
 import java.io.*;
 
 // 더 빠른 입출력
-public class chapter2 {
+public class fasterIO {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));

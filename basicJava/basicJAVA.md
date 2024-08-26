@@ -12,18 +12,18 @@
 * 
 
 ## 기초문법
-> `part2.Grammar` 패키지
+> `part2.InputAndOuput` 패키지
 * 입력받기 / 출력하기
 * 변수 만들기
 * 반복문
 * 조건문
 
 ## 자료구조
-> `part3.Collection` 패키지
+> `part3.basicGrammar` 패키지
 * 
 * 
 
 ## 객체지향
-> `part4.learnOOP` 패키지
+> `part4.Collection` 패키지
 * 서브클래스와 상속
 * `super()`
