@@ -2,16 +2,16 @@ package part3.basicGrammar;
 
 import java.io.*;
 
-public class Condition {
+public class LearnCondition {
     private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     private BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
     public static void main(String[] args) throws IOException {
-        Condition condition = new Condition();
+        LearnCondition learnCondition = new LearnCondition();
         int number;
 
         try {
-            number = Integer.parseInt(condition.br.readLine()); // static으로 써야 함.
+            number = Integer.parseInt(learnCondition.br.readLine()); // static으로 써야 함.
             System.out.println(number);
         } catch (NumberFormatException e) {
             throw new RuntimeException(e);
@@ -20,13 +20,13 @@ public class Condition {
         }
 
         try {
-            condition.thinkIf(number);
-            condition.thinkSwitch(number);
+            learnCondition.thinkIf(number);
+            learnCondition.thinkSwitch(number);
         } catch (IOException e) {
             throw new RuntimeException(e);
         } finally {
-            condition.br.close();
-            condition.bw.close();
+            learnCondition.br.close();
+            learnCondition.bw.close();
         }
     }
 

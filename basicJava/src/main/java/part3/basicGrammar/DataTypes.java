@@ -1,12 +1,12 @@
 package part3.basicGrammar;
 import java.io.*;
 
-public class dataTypes {
+public class DataTypes {
     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     public static void main(String[] args) throws IOException {
-        dataTypes obj = new dataTypes();
+        DataTypes obj = new DataTypes();
         obj.primitiveTypes();
         obj.WrapperTypes();
     }
