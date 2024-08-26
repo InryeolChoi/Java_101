@@ -6,23 +6,24 @@
 * OOP 익혀보기
 
 ## 패키지와 클래스
-> `part1_Class` 패키지
+> `part1.class` 패키지
 * 자바 : 하나의 파일이 하나의 클래스
 * 생성자, 메소드, 그리고 변수 간 관계 익혀보기
+* 
 
 ## 기초문법
-> `learnGrammar` 패키지
+> `part2.Grammar` 패키지
 * 입력받기 / 출력하기
 * 변수 만들기
 * 반복문
 * 조건문
 
 ## 자료구조
-> `Collection` 패키지
+> `part3.Collection` 패키지
 * 
 * 
 
 ## 객체지향
-> `OOP` 패키지
+> `part4.learnOOP` 패키지
 * 서브클래스와 상속
 * `super()`
