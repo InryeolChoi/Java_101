@@ -5,6 +5,12 @@
       <module name="basic" target="22" />
       <module name="basic.main" target="22" />
       <module name="basic.test" target="22" />
+      <module name="smallSteps" target="22" />
+      <module name="smallSteps.main" target="22" />
+      <module name="smallSteps.test" target="22" />
+      <module name="useMore" target="22" />
+      <module name="useMore.main" target="22" />
+      <module name="useMore.test" target="22" />
     </bytecodeTargetLevel>
   </component>
 </project>

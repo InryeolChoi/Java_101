@@ -5,6 +5,11 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/basic.main.iml" filepath="$PROJECT_DIR$/.idea/modules/basic.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/basic.test.iml" filepath="$PROJECT_DIR$/.idea/modules/basic.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/pracJava.iml" filepath="$PROJECT_DIR$/.idea/pracJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/smallSteps.main.iml" filepath="$PROJECT_DIR$/.idea/modules/smallSteps.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/smallSteps.test.iml" filepath="$PROJECT_DIR$/.idea/modules/smallSteps.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/useMore.iml" filepath="$PROJECT_DIR$/useMore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/useMore.main.iml" filepath="$PROJECT_DIR$/.idea/modules/useMore.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/useMore.test.iml" filepath="$PROJECT_DIR$/.idea/modules/useMore.test.iml" />
     </modules>
   </component>
 </project>

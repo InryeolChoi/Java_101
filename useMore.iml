@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id="useMore" external.linked.project.path="$MODULE_DIR$/useMore" external.root.project.path="$MODULE_DIR$/useMore" external.system.id="GRADLE" external.system.module.group="com.basic" external.system.module.version="1.0-SNAPSHOT" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/useMore">
+      <excludeFolder url="file://$MODULE_DIR$/useMore/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/useMore/build" />
+    </content>
+    <orderEntry type="jdk" jdkName="openjdk-22" jdkType="JavaSDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
