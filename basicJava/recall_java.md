@@ -1,9 +1,16 @@
 # recall_java
-## 목표와 진도
-* 패키지와 클래스
-* 기초문법 익혀보기
-* 자료구조 써보기
-* OOP 익혀보기
+## 목표
+1. 고전 자바 문법 복습하기
+   * Generics, Enum, Annotation
+   * 바로 써먹을 수 있는 자료구조
+2. 자바를 이용한 여러가지 연습
+   * 멀티쓰레드, 멀티프로세싱
+   * Gradle, Lombok
+3. 모던 자바 연습하기
+
+**<연습방법>**
+* chatGPT를 통해서 문제를 만들어서 연습한다.
+* 한 문제 = 하나의 패키지라고 생각하고 만들기
 
 ## [패키지와 클래스](./src/main/java/part1)
 **<목표>**
@@ -12,15 +19,11 @@
 * 하나의 클래스 안에 여러개의 메소드를 쓰기
 * static 연습하기
 
-**<연습방법>**
-* chatGPT를 통해서 문제를 만들어서 연습한다.
-* 한 문제 = 하나의 패키지라고 생각하고 만들기
 
 ## 여러가지 입출력
 > `part2.InputAndOuput` 패키지
 * 기본적인 입출력 익히기 (println, Scanner)
 * 더 빠른 입출력 익히기 (BufferedWriter, BufferedReader)
-* 
 
 ## 기초문법
 > `part3.basicGrammar` 패키지

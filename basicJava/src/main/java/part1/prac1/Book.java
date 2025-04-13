@@ -1,15 +1,12 @@
 package part1.prac1;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
+import lombok.Getter;
 
+@Getter
 public class Book {
-    private String title;
-    private String author;
+    private final String title;
+    private final String author;
     private boolean isBorrowed;
-
-    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
     public Book(String title, String author, boolean isBorrowed) {
         this.title = title;
@@ -18,57 +15,28 @@ public class Book {
     }
 
     public void borrow() {
-        if (isBorrowed == false) {
+        if (!isBorrowed) {
             isBorrowed = true;
-            try {
-                bw.write("'{title}' 도서를 대여했습니다.");
-                bw.newLine();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            System.out.println(title + "도서를 대여했습니다.");
         }
         else
-            try {
-                bw.write("'{title}' 도서를 빌릴 수 없습니다.");
-                bw.newLine();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            System.out.println(title + "도서를 빌릴 수 없습니다.");
     }
 
     public void returnBook() {
-        if (isBorrowed == true) {
+        if (isBorrowed) {
             isBorrowed = false;
-            try {
-                bw.write("'{title}' 도서를 반납했습니다.");
-                bw.newLine();
-                bw.flush();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            System.out.println(title + "도서를 반납했습니다.");
         }
         else
-            try {
-                bw.write("'{title}' 도서를 반납할 수 없습니다.");
-                bw.newLine();
-                bw.flush();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            System.out.println(title + "도서를 반납할 수 없습니다.");
     }
 
     public void printInfo() {
-        try {
-            bw.write("제목: {title} | 저자: {author} |");
-            if (isBorrowed == true)
-                bw.write("상태: 대여 가능");
-            else {
-                bw.write("상태: 대여 불가능");
-            }
-            bw.newLine();
-            bw.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        System.out.println("제목: {" + title + "} | 저자: {" + author + "} |");
+        if (isBorrowed)
+            System.out.println("상태: 대여 가능");
+        else
+            System.out.println("상태: 대여 불가능");
     }
 }

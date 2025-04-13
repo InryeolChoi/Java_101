@@ -14,6 +14,8 @@ repositories {
 
 dependencies {
     implementation 'org.springframework:spring-core:5.3.10'
+    compileOnly 'org.projectlombok:lombok:1.18.30'  // 최신 버전 확인 가능
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
 }
 
 // 기본 소스 경로 설정
