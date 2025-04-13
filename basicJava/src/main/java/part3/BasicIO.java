@@ -1,4 +1,4 @@
-package part2;
+package part3;
 import java.util.Scanner;
 
 // 기본적인 입출력

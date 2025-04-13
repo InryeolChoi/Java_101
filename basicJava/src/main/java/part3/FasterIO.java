@@ -1,4 +1,4 @@
-package part2;
+package part3;
 import java.io.*;
 
 // 더 빠른 입출력
