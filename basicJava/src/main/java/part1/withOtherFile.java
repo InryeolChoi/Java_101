@@ -1,4 +1,4 @@
-package part1.withMultipleClass;
+package part1;
 
 public class withOtherFile {
     private String str;
@@ -11,4 +11,6 @@ public class withOtherFile {
     public String getStr() {
         return str;
     }
+
+    public void setStr(String s) { str = s;}
 }

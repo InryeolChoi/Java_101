@@ -1,4 +1,4 @@
-package part1.withMultipleClass;
+package part1;
 
 public class MultipleClass {
     public static void main(String[] args) {
