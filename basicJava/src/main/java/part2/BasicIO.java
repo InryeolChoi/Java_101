@@ -1,9 +1,9 @@
-package part2.InputAndOuput;
-import java.io.*;
+package part2;
 import java.util.Scanner;
 
 // 기본적인 입출력
-public class basicIO {
+public class BasicIO {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String s1 = sc.next();

@@ -1,4 +1,4 @@
-package part3.basicGrammar;
+package part3;
 
 import java.io.*;
 
