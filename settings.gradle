@@ -1,0 +1,5 @@
+rootProject.name = 'Java_101'
+
+include 'basicJava'
+include 'startGradle'
+include 'jdbcBasic'
