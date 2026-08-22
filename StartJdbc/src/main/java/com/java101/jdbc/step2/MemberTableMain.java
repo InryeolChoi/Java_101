@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class MemberTableMain {
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
         String url = "jdbc:h2:file:./StartJdbc/data/java101";
         String username = "sa";
         String password = "";
@@ -28,12 +28,18 @@ public class MemberTableMain {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            if (stmt != null & conn != null) {
+            if (stmt != null) {
                 try {
                     stmt.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (conn != null) {
+                try {
                     conn.close();
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
+                } catch (SQLException e) {
+                    e.printStackTrace();
                 }
             }
         }
