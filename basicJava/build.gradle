@@ -1,27 +1,7 @@
-plugins {
-    id 'java'
-}
-
 group = 'com.example'
 version = '1.0-SNAPSHOT'
-
-sourceCompatibility = '22'
-targetCompatibility = '22'
-
-repositories {
-    mavenCentral()
-}
 
 dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.30'  // 최신 버전 확인 가능
     annotationProcessor 'org.projectlombok:lombok:1.18.30'
-}
-
-// 기본 소스 경로 설정
-sourceSets {
-    main {
-        java {
-            srcDir 'src/main/java'
-        }
-    }
 }
