@@ -7,8 +7,8 @@ import java.sql.SQLException;
 
 public class MemberDeleteMain {
     public static void main(String[] args) throws SQLException {
-        int res = deleteMember(999L);
-        System.out.println("delete 결과 : " + res);
+        int affectedRows = deleteMember(999L);
+        System.out.println("delete 결과 : " + affectedRows);
     }
 
     private static int deleteMember(long id) throws SQLException {
