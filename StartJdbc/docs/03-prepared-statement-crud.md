@@ -136,11 +136,61 @@ try 블록이 끝나면 선언의 역순으로 PreparedStatement와 Connection�
 
 수동 close 코드를 먼저 작성해봤기 때문에 try-with-resources가 단순한 문법 축약이 아니라, 예외가 발생해도 리소스를 정리하기 위한 장치라는 점이 더 잘 보였다.
 
+이번에는 `main` 안에 있던 INSERT 코드를 `insertMember(id, name, email)` 메서드로 옮겼다. 처음에는 인자를 받도록 만들어놓고도 `setLong`, `setString`에는 예전 값을 그대로 적어놨다. 메서드 인자를 받는 것만으로는 부족하고, 실제 바인딩에도 그 변수를 사용해야 했다.
+
+`catch`도 없애고 `throws SQLException`으로 넘겨봤다. 이미 저장된 ID 5를 다시 실행하자 예외가 `insertMember`에서 `main`, 마지막에는 JVM까지 올라갔고 프로그램도 실패로 끝났다. `throws`는 예외를 알아서 처리하는 문법이 아니라 현재 메서드에서 처리하지 않겠다는 뜻이었다.
+
+H2에서 확인한 실제 데이터는 다음과 같았다.
+
+```text
+5 | winter | winter@xmail.com
+```
+
+## UPDATE도 executeUpdate였다
+
+ID 1 회원의 이름과 email을 바꾸는 코드를 작성했다.
+
+```sql
+UPDATE members
+SET name = ?, email = ?
+WHERE id = ?
+```
+
+물음표의 순서대로 `name`, `email`, `id`를 바인딩해야 했다. INSERT와 SQL 모양은 다르지만 데이터를 변경하는 작업이라 똑같이 `executeUpdate()`를 사용했다.
+
+```text
+update 결과 : 1
+```
+
+반환값 1은 SQL을 실행했다는 뜻만이 아니라 실제로 영향받은 행이 한 개라는 뜻이었다. H2에서 확인하니 ID 1은 다음 값으로 바뀌어 있었다.
+
+```text
+1 | yujin | yujinahn@starship.com
+```
+
+## DELETE도 영향받은 행 수를 돌려준다
+
+없는 ID 999를 삭제해봤다.
+
+```sql
+DELETE FROM members
+WHERE id = ?
+```
+
+DELETE도 UPDATE와 마찬가지로 `executeUpdate()`를 사용했고 결과는 0이었다.
+
+```text
+delete 결과 : 0
+```
+
+SQL 문법이 틀린 것이 아니라 조건에 맞는 회원이 없어서 삭제된 행이 없다는 뜻이다. 실제로 존재하는 ID를 대상으로 실행하면 1이 반환되고, 다시 조회했을 때 그 행이 사라져야 한다.
+
 ## 남은 CRUD
 
 - [x] Member INSERT
-- [ ] Member UPDATE
-- [ ] Member DELETE
+- [x] Member UPDATE
+- [x] 존재하지 않는 ID DELETE: 0행
+- [ ] 존재하는 ID DELETE: 1행 및 재조회 확인
 - [x] email UNIQUE 제약조건 위반 확인
 
 다음에는 데이터를 조회하기 전에 UPDATE와 DELETE를 더 해볼지, 아니면 ResultSet으로 방금 저장한 데이터를 먼저 읽어볼지 정한다.

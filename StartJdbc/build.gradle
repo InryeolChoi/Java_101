@@ -6,4 +6,7 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     runtimeOnly 'com.h2database:h2:2.4.240'
+
+    compileOnly 'org.projectlombok:lombok:1.18.30'  // 최신 버전 확인 가능
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
 }

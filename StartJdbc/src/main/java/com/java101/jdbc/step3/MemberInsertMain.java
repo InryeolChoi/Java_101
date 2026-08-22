@@ -4,6 +4,12 @@ import java.sql.*;
 
 public class MemberInsertMain {
     public static void main(String[] args) throws SQLException {
+        int affectedRows = insertMember(5L, "winter", "winter@xmail.com");
+        System.out.println("영향받은 행 수 :" + affectedRows);
+    }
+
+    private static int insertMember(long id, String name, String email) throws SQLException
+    {
         String url = "jdbc:h2:file:./StartJdbc/data/java101";
         String username = "sa";
         String password = "";
@@ -13,11 +19,10 @@ public class MemberInsertMain {
             Connection conn = DriverManager.getConnection(url, username, password);
             PreparedStatement pstmt = conn.prepareStatement(sql);)
         {
-            pstmt.setLong(1, 4L);
-            pstmt.setString(2, "karina");
-            pstmt.setString(3, "karina@xmail.com");
-            int affectedRows = pstmt.executeUpdate();
-            System.out.println("영향받은 row 수 : " + affectedRows);
+            pstmt.setLong(1, id);
+            pstmt.setString(2, name);
+            pstmt.setString(3, email);
+            return (pstmt.executeUpdate());
         }
     }
 }
