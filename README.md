@@ -4,13 +4,17 @@
 * Gradle과 친해지기
 * 조금 더 공부해보기
 
-## [basicJava](./basicJava/README.md)
+## [JavaBasic](./JavaBasic/README.md)
 * 꼭 필요한 자바 문법 위주로 복습
 * 문제풀이 위주로 연습
 * 필요할 때마다 복습
 
-## [startGradle](./startGradle/README.md)
+## [StartGradle](./StartGradle/README.md)
 > 자바의 빌드 도구, Gradle과 친해져보기
 * 인텔리제이에서 Gradle 프로젝트 시작해보기
 * 복잡한 계산기를 만드는 과정을 Java와 Gradle을 이용해서 만들어보기
 * jar 파일까지 만들어보기.
+
+## [StartJdbc](./StartJdbc/README.md)
+* jdbc 연습해보기
+* 데이터베이스는 H2로.
