@@ -185,15 +185,17 @@ delete 결과 : 0
 
 SQL 문법이 틀린 것이 아니라 조건에 맞는 회원이 없어서 삭제된 행이 없다는 뜻이다. 실제로 존재하는 ID를 대상으로 실행하면 1이 반환되고, 다시 조회했을 때 그 행이 사라져야 한다.
 
+ID 3의 `john`을 실제로 삭제한 뒤 전체 조회도 다시 해봤다. DELETE 결과는 1이었고, 목록에는 ID 1, 4, 5만 남았다. 이제 INSERT, SELECT, UPDATE, DELETE를 모두 JDBC로 직접 실행해본 셈이다.
+
 ## 남은 CRUD
 
 - [x] Member INSERT
 - [x] Member UPDATE
 - [x] 존재하지 않는 ID DELETE: 0행
-- [ ] 존재하는 ID DELETE: 1행 및 재조회 확인
+- [x] 존재하는 ID DELETE: 1행 및 재조회 확인
 - [x] email UNIQUE 제약조건 위반 확인
 
-다음에는 데이터를 조회하기 전에 UPDATE와 DELETE를 더 해볼지, 아니면 ResultSet으로 방금 저장한 데이터를 먼저 읽어볼지 정한다.
+CRUD를 모두 직접 작성한 뒤에는 조회 코드를 `MemberDao`로 모아보기 시작했다.
 
 ## Spring에서는 어떻게 달라질까?
 

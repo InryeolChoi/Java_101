@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class MemberDeleteMain {
     public static void main(String[] args) throws SQLException {
-        int affectedRows = deleteMember(999L);
+        int affectedRows = deleteMember(3L);
         System.out.println("delete 결과 : " + affectedRows);
     }
 

@@ -65,9 +65,19 @@ Member(id=5, name=winter, email=winter@xmail.com)
 
 `findMember()`와 `findAllMembers()`를 만들고 보니 예전에 봤던 DAO가 떠올랐다. SQL을 실행하고, ResultSet을 Java 객체로 바꿔서 호출자에게 돌려주는 부분이 바로 데이터 접근 코드였다.
 
-지금은 실행을 위한 `main`과 데이터 접근 메서드가 한 클래스 안에 섞여 있어서 완성된 DAO 클래스는 아니다. 나중에 `MemberDao`로 분리하면 `main`은 DAO 메서드만 호출하고 Connection, PreparedStatement, ResultSet은 DAO 안으로 들어가게 된다.
+UPDATE와 DELETE까지 작성한 뒤 `MemberDao`를 만들고, 조회 코드를 그 안으로 옮겼다. 이제 `MemberFindMain`과 `MemberFindAllMain`은 DAO를 호출해 결과를 출력만 하고, Connection, PreparedStatement, ResultSet, SQL은 `MemberDao` 안에 있다.
 
-우선 UPDATE와 DELETE까지 직접 작성한 다음, 반복되는 JDBC 코드를 한곳에 모으면서 DAO로 분리해본다. 그 뒤 트랜잭션을 적용하면 DAO 메서드 여러 개가 같은 Connection을 사용해야 하는 이유도 확인할 수 있다.
+DAO가 JDBC를 없애준 것은 아니다. JDBC 코드를 한곳에 모아둔 것뿐이다. 그래서 다음 트랜잭션 단계에서 DAO 메서드 여러 개가 같은 Connection을 사용해야 하는 이유를 확인하기 좋다.
+
+## DTO, VO, Entity는 아직 만들지 않기
+
+Spring 프로젝트에서 DTO, VO, Entity라는 이름이 같이 나와서 잠깐 겁이 났다. 하지만 지금의 순수 JDBC 콘솔 실습에 모두 필요한 것은 아니다.
+
+- DTO는 HTTP 요청과 응답처럼 계층 사이에서 데이터를 옮길 때 쓴다. 아직 Controller나 API가 없으므로 만들 이유가 없다.
+- Entity는 JPA가 DB 테이블과 연결해 관리하는 객체다. JPA를 시작할 때 다룬다.
+- VO는 `Email`, `Money`처럼 의미와 규칙을 가진 값 객체라는 뜻으로 나중에 배우면 된다. 자료마다 단순 데이터 객체라는 뜻으로도 섞어 써서 지금은 이름에 매달리지 않기로 했다.
+
+현재 필요한 것은 `Member`와 `MemberDao`뿐이다.
 
 ## 구현 체크리스트
 
