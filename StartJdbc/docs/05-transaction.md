@@ -17,6 +17,7 @@
 - [x] 성공 시 `commit()`
 - [x] 실패 시 `rollback()`
 - [x] 새 Connection과 H2 Shell에서 commit/rollback 결과 확인
+- [x] 두 SQL 중 두 번째 실패 시 첫 번째 SQL도 rollback되는지 확인
 
 ## 반드시 관찰할 조건
 
@@ -93,6 +94,20 @@ Autocommit 확인 : true
 ```
 
 `autoCommit=true`에서는 각 SQL 성공이 각각 commit된다. 따라서 뒤 SQL이 실패해도 앞 SQL을 되돌릴 수 없다. 다음에는 같은 실패를 `autoCommit=false`와 `rollback()`으로 실행해 ID 100도 남지 않게 만들어본다.
+
+## 같은 실패를 rollback하면 첫 INSERT도 사라진다
+
+auto commit 실험 뒤 테스트 행을 지우고, 같은 INSERT 두 개를 `setAutoCommit(false)` 상태에서 실행했다. 첫 INSERT는 성공했지만 두 번째 INSERT가 같은 UNIQUE email 때문에 실패했다. catch에서 같은 Connection의 `rollback()`을 호출했다.
+
+최종적으로 ID 100과 101을 조회했을 때 결과는 0행이었다. 첫 INSERT가 성공했다는 사실만으로는 DB에 확정되지 않는다. 같은 Connection에서 commit하기 전까지는 전체 작업이 하나의 트랜잭션이다.
+
+## commit 뒤에는 어떻게 되돌리나?
+
+`rollback()`은 아직 commit하지 않은 현재 트랜잭션만 되돌린다. 이미 commit한 데이터는 rollback으로 취소할 수 없다.
+
+그렇다고 운영에서 사람이 매번 DB 콘솔을 열어 SQL을 직접 쳐야 하는 것은 아니다. 일반적으로 애플리케이션의 취소·수정 기능이 새 트랜잭션을 시작해 반대 작업을 수행한다. 예를 들어 주문 취소는 주문 행을 무작정 지우기보다 상태를 `CANCELED`로 바꾸고 재고를 복구하는 식이다. 이것을 보정 작업 또는 보상 트랜잭션이라고 생각할 수 있다.
+
+잘못 commit한 데이터를 SQL로 조용히 고치는 방식은 감사 기록과 정합성을 잃기 쉬워서 운영에서는 마지막 수단에 가깝다. 대규모 장애라면 DB 백업과 로그를 이용한 복구 시점 복원 같은 별도 운영 절차도 고려한다.
 
 ## Spring은 이것을 어떻게 처리할까?
 
