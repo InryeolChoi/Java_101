@@ -10,9 +10,9 @@
 
 ## 구현 체크리스트
 
-- [ ] auto commit 상태에서 INSERT 두 번 실행
-- [ ] 두 번째 INSERT를 UNIQUE 제약조건으로 실패시키기
-- [ ] 첫 번째 INSERT가 남는지 확인
+- [x] auto commit 상태에서 INSERT 두 번 실행
+- [x] 두 번째 INSERT를 UNIQUE 제약조건으로 실패시키기
+- [x] 첫 번째 INSERT가 남는지 확인
 - [x] `setAutoCommit(false)` 적용
 - [x] 성공 시 `commit()`
 - [x] 실패 시 `rollback()`
@@ -75,6 +75,24 @@ Member(id=6, name=liz-committed, email=liz@xmail.com)
 ```
 
 같은 Java 파일에 두 메서드가 있다는 사실은 중요하지 않았다. 각 SQL이 어떤 Connection에서 실행됐는지가 commit과 rollback 결과를 결정했다.
+
+## auto commit에서는 첫 성공이 이미 확정된다
+
+ID 100과 101에 같은 email을 넣는 INSERT를 연달아 실행했다. email에는 UNIQUE 제약조건이 있으므로 두 번째 INSERT는 실패한다.
+
+```text
+Autocommit 확인 : true
+첫 번째 INSERT: 성공
+두 번째 INSERT: UNIQUE 제약조건 위반으로 실패
+```
+
+그런데 H2에서 ID 100을 조회하니 첫 번째 행은 남아 있었다.
+
+```text
+100 | auto-first | boundary-auto@example.com
+```
+
+`autoCommit=true`에서는 각 SQL 성공이 각각 commit된다. 따라서 뒤 SQL이 실패해도 앞 SQL을 되돌릴 수 없다. 다음에는 같은 실패를 `autoCommit=false`와 `rollback()`으로 실행해 ID 100도 남지 않게 만들어본다.
 
 ## Spring은 이것을 어떻게 처리할까?
 
