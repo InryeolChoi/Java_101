@@ -48,4 +48,17 @@ public class MemberDao {
         }
         return members;
     }
+
+    public int save(Member member) throws SQLException {
+        String sql = "INSERT INTO members (id, name, email) VALUES (?, ?, ?)";
+        try (
+            Connection conn = DriverManager.getConnection(url, username, password);
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+        ) {
+            pstmt.setLong(1, member.getId());
+            pstmt.setString(2, member.getName());
+            pstmt.setString(3, member.getEmail());
+            return pstmt.executeUpdate();
+        }
+    }
 }
